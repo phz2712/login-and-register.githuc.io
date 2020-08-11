@@ -5,6 +5,18 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: #cccccc;
 }
+.labelgen{
+    margin-top: -10px;
+    margin-bottom: 5px;
+    width: 30%;
+    opacity: 0.8;
+}
+.labelbir{
+    margin-top: -10px;
+    width: 30%;
+    opacity: 0.8;
+
+}
 .container{
     width: 100%;
     max-width: 1200px;
@@ -21,9 +33,9 @@
     border: 2px dotted #cccccc;
     border-radius: 10px;
 }
-h3{
+.title{
     color: #009999;
-    font-size: 20px;
+    font-size: 28px;
 }
 .input-box{
     margin-bottom: 5px;
@@ -34,9 +46,20 @@ h3{
     border: 1px solid #cccccc;
     outline: none;
 }
+.right{
+    padding: 7.5px 15px;
+    width: 50%;
+}
+.left{
+    padding: 7.5px 15px;
+    width: 50%;
+}
+.left input{
+    height: 30px;
+}
 .btn-box{
     text-align: right;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .btn-box button{
     padding: 7.5px 15px;
@@ -50,7 +73,35 @@ h3{
     color: red;
     font-size: 13px;
 }
+#checkemail{
+    color: red;
+    font-size: 13px;
+}
 #checkpass{
     color: red;
     font-size: 13px;
+}
+#checkrepass{
+    color: red;
+    font-size: 13px;
+}
+.form-check-input{
+    width: 20px;
+    height: 20px;
+}
+.form-check-label{
+    margin-right: 10px;
+}
+.row{
+    margin-bottom: 10px;
+}
+.form-group{
+    margin-top: -10px;
+}
+.input-text{
+    padding: 7.5px 15px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    outline: none;
+    margin-top: -10px;
 }
