@@ -89,7 +89,7 @@
         <div class="bg-contain">
             <div class="container">
                 <div class="login-form">
-                    <form action="/action_page.php" method="post">
+                    <form action="/action_page.php" onmousemove="checkbutton()" method="post">
                         <h2 class="title">Register</h2>
                         <script>
                             function checkuser(){
@@ -109,20 +109,20 @@
                             <div id="checkuser"> <br/> </div>
                         </div>
                         <script>
-                          function checkemail(){
-                              var checke= document.getElementById('email').value;
-                              var validateemail=" ";
-                              const mail= /\S+@\S+\.\S+/;
-                              if(checke===""||mail.test(checke))
+                            function checkemail(){
+                                var checke= document.getElementById('email').value;
+                                var validateemail=" ";
+                                const mail= /\S+@\S+\.\S+/;
+                                if(checke===""||mail.test(checke))
+                                    {
+                                    validateemail= "<br/>"
+                                    }
+                                else if(!mail.test(user.email))
                                 {
-                                  validateemail= "<br/>"
+                                    validateemail="email is wrong"
                                 }
-                              else if(!mail.test(user.email))
-                              {
-                                validateemail="email is wrong"
-                              }
-                               document.getElementById('checkemail').innerHTML=validateemail;
-                          }
+                                document.getElementById('checkemail').innerHTML=validateemail;
+                            }
                         </script>
                         <div class="input-box">
                             <input maxlength="40" onkeyup="checkemail()" id='email' type="text" placeholder="Email">
@@ -161,7 +161,7 @@
                                 {
                                     validatepass= "</br>"
                                 }}
-                                 document.getElementById('checkpass').innerHTML=validatepass;
+                                document.getElementById('checkpass').innerHTML=validatepass;
                             }
                         </script>
                         <div class="input-box">
@@ -190,29 +190,30 @@
                         <div class="row">
                             <div class="right">
                                 <div class="labelgen">Gender</div>
-                                  <div class="form-check form-check-inline">
-                                      <input class="form-check-input" type="radio" checked name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                      <label class="form-check-label" for="inlineRadio1">Male</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                      <label class="form-check-label" for="inlineRadio2">Female</label>
-                                </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" checked name="inlineRadioOptions" id="inlineRadio1" value="male">
+                                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
+                                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                                    </div>
                             </div>
                             <div class="left">
                                 <div class="labelbir">Birthday</div>
-                                <input id="datepicker" width="170" />
+                                <input id="datepicker" width="170" value= "1/1/2010"/>
                                 <script>
                                     $('#datepicker').datepicker({
                                         uiLibrary: 'bootstrap',
                                         maxDate: new Date(),
-                                        minDate: "1/1/1900"
+                                        minDate: "1/1/1900",
+                                        
                                     });
                                 </script> 
                             </div>
                         </div>
                         <div class="input-box">
-                            <input list="jobs" name="myBrowser" required placeholder="Jobs"/></label>
+                            <input list="jobs" id="job" name="myBrowser" required placeholder="Jobs"/></label>
                             <datalist id="jobs">
                                 <option value="artist">
                                 <option value="astronaut">
@@ -227,18 +228,42 @@
                         </div> 
                         <form action="" class="gg_form light-blue" method="POST" target="hidden_iframe">
                             <div class="row">
-                              <div class="right">
-                                <select class="input-text" name="calc_shipping_provinces" required=""><option value=""> Province/ City</option><option value="1">An Giang</option><option value="2">Bà Rịa - Vũng Tàu</option><option value="3">Bạc Liêu</option><option value="4">Bắc Kạn</option><option value="5">Bắc Giang</option><option value="6">Bắc Ninh</option><option value="7">Bến Tre</option><option value="8">Bình Dương</option><option value="9">Bình Định</option><option value="10">Bình Phước</option><option value="11">Bình Thuận</option><option value="12">Cà Mau</option><option value="13">Cao Bằng</option><option value="14">Cần Thơ</option><option value="15">Đà Nẵng</option><option value="16">Đắk Lắk</option><option value="17">Đắk Nông</option><option value="18">Đồng Nai</option><option value="19">Đồng Tháp</option><option value="20">Điện Biên</option><option value="21">Gia Lai</option><option value="22">Hà Giang</option><option value="23">Hà Nam</option><option value="24">Hà Nội</option><option value="25">Hà Tĩnh</option><option value="26">Hải Dương</option><option value="27">Hải Phòng</option><option value="28">Hòa Bình</option><option value="29">Hậu Giang</option><option value="30">Hưng Yên</option><option value="31">Thành phố Hồ Chí Minh</option><option value="32">Khánh Hòa</option><option value="33">Kiên Giang</option><option value="34">Kon Tum</option><option value="35">Lai Châu</option><option value="36">Lào Cai</option><option value="37" selected="selected">Lạng Sơn</option><option value="38">Lâm Đồng</option><option value="39">Long An</option><option value="40">Nam Định</option><option value="41">Nghệ An</option><option value="42">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="44">Phú Thọ</option><option value="45">Phú Yên</option><option value="46">Quảng Bình</option><option value="47">Quảng Nam</option><option value="48">Quảng Ngãi</option><option value="49">Quảng Ninh</option><option value="50">Quảng Trị</option><option value="51">Sóc Trăng</option><option value="52">Sơn La</option><option value="53">Tây Ninh</option><option value="54">Thái Bình</option><option value="55">Thái Nguyên</option><option value="56">Thanh Hóa</option><option value="57">Thừa Thiên - Huế</option><option value="58">Tiền Giang</option><option value="59">Trà Vinh</option><option value="60">Tuyên Quang</option><option value="61">Vĩnh Long</option><option value="62">Vĩnh Phúc</option><option value="63">Yên Bái</option></select>
-                                <input class="billing_address_1" name="" type="hidden" value="">
-                              </div>
-                              <div class="left">
-                                <select class="input-text" name="calc_shipping_district" required=""><option value="">District</option><option value="Thành phố Lạng Sơn">Thành phố Lạng Sơn</option><option value="Huyện Bắc Sơn">Huyện Bắc Sơn</option><option value="Huyện Bình Gia">Huyện Bình Gia</option><option value="Huyện Cao Lộc">Huyện Cao Lộc</option><option value="Huyện Chi Lăng">Huyện Chi Lăng</option><option value="Huyện Đình Lập">Huyện Đình Lập</option><option value="Huyện Hữu Lũng">Huyện Hữu Lũng</option><option value="Huyện Lộc Bình">Huyện Lộc Bình</option><option value="Huyện Tràng Định">Huyện Tràng Định</option><option value="Huyện Văn Lãng">Huyện Văn Lãng</option><option value="Huyện Văn Quan">Huyện Văn Quan</option></select>
-                                <input class="billing_address_2" name="" type="hidden" value="">
-                              </div>
+                                <div class="right">
+                                    <select class="input-text" name="calc_shipping_provinces" required=""><option value=""> Province/ City</option><option value="1">An Giang</option><option value="2">Bà Rịa - Vũng Tàu</option><option value="3">Bạc Liêu</option><option value="4">Bắc Kạn</option><option value="5">Bắc Giang</option><option value="6">Bắc Ninh</option><option value="7">Bến Tre</option><option value="8">Bình Dương</option><option value="9">Bình Định</option><option value="10">Bình Phước</option><option value="11">Bình Thuận</option><option value="12">Cà Mau</option><option value="13">Cao Bằng</option><option value="14">Cần Thơ</option><option value="15">Đà Nẵng</option><option value="16">Đắk Lắk</option><option value="17">Đắk Nông</option><option value="18">Đồng Nai</option><option value="19">Đồng Tháp</option><option value="20">Điện Biên</option><option value="21">Gia Lai</option><option value="22">Hà Giang</option><option value="23">Hà Nam</option><option value="24">Hà Nội</option><option value="25">Hà Tĩnh</option><option value="26">Hải Dương</option><option value="27">Hải Phòng</option><option value="28">Hòa Bình</option><option value="29">Hậu Giang</option><option value="30">Hưng Yên</option><option value="31">Thành phố Hồ Chí Minh</option><option value="32">Khánh Hòa</option><option value="33">Kiên Giang</option><option value="34">Kon Tum</option><option value="35">Lai Châu</option><option value="36">Lào Cai</option><option value="37" selected="selected">Lạng Sơn</option><option value="38">Lâm Đồng</option><option value="39">Long An</option><option value="40">Nam Định</option><option value="41">Nghệ An</option><option value="42">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="44">Phú Thọ</option><option value="45">Phú Yên</option><option value="46">Quảng Bình</option><option value="47">Quảng Nam</option><option value="48">Quảng Ngãi</option><option value="49">Quảng Ninh</option><option value="50">Quảng Trị</option><option value="51">Sóc Trăng</option><option value="52">Sơn La</option><option value="53">Tây Ninh</option><option value="54">Thái Bình</option><option value="55">Thái Nguyên</option><option value="56">Thanh Hóa</option><option value="57">Thừa Thiên - Huế</option><option value="58">Tiền Giang</option><option value="59">Trà Vinh</option><option value="60">Tuyên Quang</option><option value="61">Vĩnh Long</option><option value="62">Vĩnh Phúc</option><option value="63">Yên Bái</option></select>
+                                    <input class="billing_address_1" name="" type="hidden" value="">
+                                </div>
+                                <div class="left">
+                                    <select class="input-text" id="district" onmousemove="checkbutton()" name="calc_shipping_district" required=""><option value="">District</option><option value="Thành phố Lạng Sơn">Thành phố Lạng Sơn</option><option value="Huyện Bắc Sơn">Huyện Bắc Sơn</option><option value="Huyện Bình Gia">Huyện Bình Gia</option><option value="Huyện Cao Lộc">Huyện Cao Lộc</option><option value="Huyện Chi Lăng">Huyện Chi Lăng</option><option value="Huyện Đình Lập">Huyện Đình Lập</option><option value="Huyện Hữu Lũng">Huyện Hữu Lũng</option><option value="Huyện Lộc Bình">Huyện Lộc Bình</option><option value="Huyện Tràng Định">Huyện Tràng Định</option><option value="Huyện Văn Lãng">Huyện Văn Lãng</option><option value="Huyện Văn Quan">Huyện Văn Quan</option></select>
+                                    <input class="billing_address_2" name="" type="hidden" value="">
+                                </div>
                             </div>
                         </form>
                         <div class="btn-box">
-                            <button class="btn-secondary" type="submit" disabled>
+                            <script>
+                                function checkbutton(){
+                                    var checku= document.getElementById('user').value;
+                                    var validateuser=document.getElementById('checkuser').innerHTML;
+                                    var checke= document.getElementById('email').value;
+                                    var validateemail=document.getElementById('checkemail').innerHTML;
+                                    var checkp= document.getElementById('pass').value;
+                                    var validatepass=document.getElementById('checkpass').innerHTML;
+                                    var checkre= document.getElementById('repass').value;
+                                    var validaterepass= document.getElementById('checkrepass').innerHTML;
+                                    var checkjob= document.getElementById('job').value;
+                                    var checkadd= document.getElementById('district').value;
+                                    var condition= false;
+                                    if(checku!==""&& validateuser==="<br>" && checke!==""&& validateemail==="<br>"&& checkp!==""&&validatepass==="<br>"&& checkre!==""&&validaterepass==="<br>"&& checkjob!==""&&checkadd!=="")
+                                    {
+                                        condition= false;
+                                    }
+                                    else
+                                    {
+                                        condition= true;
+                                    }
+                                    document.getElementById("submit").disabled=condition;
+                                }
+                            </script>
+                            <button class="btn-secondary" id="submit" onmousemove="checkbutton()" type="submit" disabled>
                                 Register
                             </button>
                         </div>
