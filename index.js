@@ -6,5 +6,5 @@ app.set("views", "./views");
 app.listen(3000);
 
 app.get("/",function(red, res){
-  res.render("register");
+    res.render("homepage");
 });
